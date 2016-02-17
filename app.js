@@ -5,6 +5,9 @@ var app = electron.app;
 var BrowserWindow = require('browser-window');
 var storage = require("./libs/storage");
 
+var Menu = require('menu');
+var customMenu = require('./libs/custom-menu');
+
 app.on('ready', function () {
 
   // grab last main window state
@@ -26,7 +29,7 @@ app.on('ready', function () {
       webSecurity: false
     }
   });
-  
+
   mainWindow.loadURL('https://roll20.net/');
   //mainWindow.webContents.openDevTools();
 
@@ -40,5 +43,9 @@ app.on('ready', function () {
       maximized: mainWindow.isMaximized()
     });
   });
+
+  var template = customMenu.getTemplate();
+  var menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
 
 });
