@@ -1,0 +1,27 @@
+{
+  "name": "electron-roll20",
+  "version": "1.0.0",
+  "description": "Roll20 as an application.",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allencoded/electron-roll20.git"
+  },
+  "keywords": [
+    "roll20",
+    "electron"
+  ],
+  "author": "Allen Hendricks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allencoded/electron-roll20/issues"
+  },
+  "homepage": "https://github.com/allencoded/electron-roll20#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.7"
+  }
+}
