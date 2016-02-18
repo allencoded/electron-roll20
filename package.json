@@ -23,6 +23,7 @@
   "homepage": "https://github.com/allencoded/electron-roll20#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.7",
+    "eslint-config-airbnb": "^5.0.1",
     "jspm": "^0.16.29"
   },
   "jspm": {

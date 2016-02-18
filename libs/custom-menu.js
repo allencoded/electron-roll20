@@ -1,18 +1,19 @@
-const remote = require('electron').remote;
+'use-strict';
+// const remote = require('electron').remote;
 const BrowserWindow = require('electron').BrowserWindow;
 
 exports.getTemplate = function () {
-  var template = [
+  const template = [
     {
       label: 'Roll20',
       submenu: [
         {
           label: 'Player Handbook',
-          click: function () {
+          click() {
             console.log('test');
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     {
       label: 'View',
@@ -20,34 +21,35 @@ exports.getTemplate = function () {
         {
           label: 'Toggle Fullscreen',
           accelerator: 'F11',
-          click: function (item, focusedWindow) {
-            if (focusedWindow){
+          click(item, focusedWindow) {
+            if (focusedWindow) {
               focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
             }
-          }
+          },
         },
         {
           label: 'Toggle Developer Tools',
-          accelerator: (function() {
-          if (process.platform == 'darwin')
-            return 'Alt+Command+I';
-          else
+          accelerator: (function () {
+            if (process.platform === 'darwin') {
+              return 'Alt+Command+I';
+            }
             return 'Ctrl+Shift+I';
-          })(),
-          click: function(item, focusedWindow) {
-            if (focusedWindow)
+          }()),
+          click(item, focusedWindow) {
+            if (focusedWindow) {
               focusedWindow.toggleDevTools();
             }
           },
+        },
         {
           label: 'Reload',
           accelerator: 'F5',
-          click: function () {
+          click() {
             BrowserWindow.getFocusedWindow().reloadIgnoringCache();
-          }
-        }
-      ]
-    }
+          },
+        },
+      ],
+    },
   ];
   return template;
 };
