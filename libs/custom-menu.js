@@ -1,6 +1,8 @@
 'use-strict';
-// const remote = require('electron').remote;
+
 const BrowserWindow = require('electron').BrowserWindow;
+// const path = require('path');
+// const appDir = path.dirname(require.main.filename);
 
 exports.getTemplate = function () {
   const template = [
@@ -46,6 +48,37 @@ exports.getTemplate = function () {
           accelerator: 'F5',
           click() {
             BrowserWindow.getFocusedWindow().reloadIgnoringCache();
+          },
+        },
+      ],
+    },
+    {
+      label: 'Random Generators',
+      submenu: [
+        {
+          label: 'World Generator',
+          click() {
+            const worldGen = new BrowserWindow({
+              width: 800,
+              height: 600,
+              show: true,
+              autoHideMenuBar: true,
+              title: 'World Generator',
+            });
+            worldGen.loadUrl(`http://donjon.bin.sh/fantasy/world/`);
+          },
+        },
+        {
+          label: 'Dungeon Generator',
+          click() {
+            const dunGen = new BrowserWindow({
+              width: 800,
+              height: 600,
+              show: true,
+              autoHideMenuBar: true,
+              title: 'Dungeon Generator',
+            });
+            dunGen.loadUrl(`http://donjon.bin.sh/5e/dungeon/`);
           },
         },
       ],
